@@ -4,9 +4,11 @@ export type DatePickerSelectedValue = {
   day: { id: number; title: string | number };
   year: { id: number; title: string | number };
 };
+export type CalendarType = "jalaali" | "georgian" | "hijri";
 export type DatePickerProps = {
   setSelectedDate: (a?: DatePickerSelectedDate) => void;
   selectedDate?: DatePickerSelectedDate;
+  type?: CalendarType;
   minYear?: number;
   maxYear?: number;
   submitCallback?: () => void;

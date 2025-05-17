@@ -6,3 +6,7 @@ export declare const MONTHS: {
     id: number;
     title: string;
 }[];
+export declare const HIJRI_MONTHS: {
+    id: number;
+    title: string;
+}[];

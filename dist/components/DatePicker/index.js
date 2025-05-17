@@ -48,39 +48,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const moment_1 = __importDefault(require("moment"));
 const react_1 = __importStar(require("react"));
 const generateDays_helper_1 = require("../../helpers/generateDays.helper");
+const generateMonths_helper_1 = require("../../helpers/generateMonths.helper");
 const generateYears_helper_1 = require("../../helpers/generateYears.helper");
-const months_util_1 = require("../../utils/months.util");
+const moment_helper_1 = require("../../helpers/moment.helper");
 const WheelPicker_1 = __importDefault(require("../WheelPicker/WheelPicker"));
 const DatePicker = (_a) => {
     var _b, _c, _d, _e;
     var props = __rest(_a, []);
-    const { selectedDate, setSelectedDate, maxYear = (0, moment_1.default)().year(), minYear = (0, moment_1.default)().year() - 100, submitCallback, submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
-    const NOW = (0, moment_1.default)(new Date());
+    const DEFAULT_MIN_MAX_YEAR = (0, moment_helper_1.findDefaultMinAndMaxYear)(props === null || props === void 0 ? void 0 : props.type);
+    const { selectedDate, setSelectedDate, maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "jalaali", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
     const YEARS = (0, react_1.useMemo)(() => (0, generateYears_helper_1.generateYears)(minYear, maxYear), [minYear, maxYear]);
+    const MONTHS = (0, generateMonths_helper_1.generateMonths)(type);
     const formatSelectedDate = (selectedDate) => {
         return {
             year: YEARS.find((i) => (i === null || i === void 0 ? void 0 : i.id) == Number(selectedDate === null || selectedDate === void 0 ? void 0 : selectedDate.year)) || (YEARS === null || YEARS === void 0 ? void 0 : YEARS[0]),
-            month: months_util_1.MONTHS.find((i) => (i === null || i === void 0 ? void 0 : i.id) == Number(selectedDate === null || selectedDate === void 0 ? void 0 : selectedDate.month)) || (months_util_1.MONTHS === null || months_util_1.MONTHS === void 0 ? void 0 : months_util_1.MONTHS[0]),
+            month: MONTHS.find((i) => (i === null || i === void 0 ? void 0 : i.id) == Number(selectedDate === null || selectedDate === void 0 ? void 0 : selectedDate.month)) || (MONTHS === null || MONTHS === void 0 ? void 0 : MONTHS[0]),
             day: { id: Number(selectedDate === null || selectedDate === void 0 ? void 0 : selectedDate.day), title: selectedDate === null || selectedDate === void 0 ? void 0 : selectedDate.day },
         };
     };
     const SELECTED = !!selectedDate
         ? formatSelectedDate(selectedDate)
-        : {
-            year: YEARS.find((i) => (i === null || i === void 0 ? void 0 : i.id) == Number(NOW.year())) || (YEARS === null || YEARS === void 0 ? void 0 : YEARS[0]),
-            month: months_util_1.MONTHS.find((i) => (i === null || i === void 0 ? void 0 : i.id) == Number(NOW.month() + 1)) || (months_util_1.MONTHS === null || months_util_1.MONTHS === void 0 ? void 0 : months_util_1.MONTHS[0]),
-            day: { id: (0, moment_1.default)(NOW).date(), title: (0, moment_1.default)(NOW).date() },
-        };
+        : (0, moment_helper_1.formatDefaultDate)(YEARS, MONTHS, type);
     const valueRef = (0, react_1.useRef)(SELECTED);
-    const [days_array, set_days_array] = (0, react_1.useState)((0, generateDays_helper_1.generateDays)(Number(((_b = SELECTED === null || SELECTED === void 0 ? void 0 : SELECTED.month) === null || _b === void 0 ? void 0 : _b.id) || ((_c = valueRef.current.month) === null || _c === void 0 ? void 0 : _c.id)), Number(((_d = SELECTED === null || SELECTED === void 0 ? void 0 : SELECTED.year) === null || _d === void 0 ? void 0 : _d.id) || ((_e = valueRef.current.year) === null || _e === void 0 ? void 0 : _e.id))));
+    const [days_array, set_days_array] = (0, react_1.useState)((0, generateDays_helper_1.generateDays)(Number(((_b = SELECTED === null || SELECTED === void 0 ? void 0 : SELECTED.month) === null || _b === void 0 ? void 0 : _b.id) || ((_c = valueRef.current.month) === null || _c === void 0 ? void 0 : _c.id)), Number(((_d = SELECTED === null || SELECTED === void 0 ? void 0 : SELECTED.year) === null || _d === void 0 ? void 0 : _d.id) || ((_e = valueRef.current.year) === null || _e === void 0 ? void 0 : _e.id)), type));
     const _onValueChange = (refValue, value) => {
         var _a, _b;
         valueRef.current = Object.assign(Object.assign({}, valueRef.current), { [`${refValue}`]: value });
         if (refValue == "month" || refValue == "year") {
-            const TEMP = (0, generateDays_helper_1.generateDays)(Number((_a = valueRef.current.month) === null || _a === void 0 ? void 0 : _a.id), Number((_b = valueRef.current.year) === null || _b === void 0 ? void 0 : _b.id));
+            const TEMP = (0, generateDays_helper_1.generateDays)(Number((_a = valueRef.current.month) === null || _a === void 0 ? void 0 : _a.id), Number((_b = valueRef.current.year) === null || _b === void 0 ? void 0 : _b.id), type);
             set_days_array((days) => {
                 if (days.length !== TEMP.length)
                     return TEMP;
@@ -103,7 +100,7 @@ const DatePicker = (_a) => {
         react_1.default.createElement("div", { className: containerClassName },
             react_1.default.createElement(WheelPicker_1.default, { perspective: "left", defaultValue: valueRef.current.day, slides: days_array, hasDynamicValue: true, onSelect: (value) => _onValueChange("day", value) }),
             react_1.default.createElement(WheelPicker_1.default, { perspective: "center", defaultValue: valueRef.current.year, slides: YEARS, onSelect: (value) => _onValueChange("year", value) }),
-            react_1.default.createElement(WheelPicker_1.default, { perspective: "right", defaultValue: valueRef.current.month, slides: months_util_1.MONTHS, onSelect: (value) => _onValueChange("month", value) })),
+            react_1.default.createElement(WheelPicker_1.default, { perspective: "right", defaultValue: valueRef.current.month, slides: MONTHS, onSelect: (value) => _onValueChange("month", value) })),
         react_1.default.createElement("button", { className: buttonClassName, onClick: _onSubmit },
             react_1.default.createElement("p", { className: submitTitleClassName }, submitTitle))));
 };
