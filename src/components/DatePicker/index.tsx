@@ -12,10 +12,11 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
   const {
     selectedDate,
     setSelectedDate,
+    columnsOrder = ["day", "month", "year"],
     maxYear = DEFAULT_MIN_MAX_YEAR.maxYear,
     minYear = DEFAULT_MIN_MAX_YEAR.minYear,
     submitCallback,
-    type = "jalaali",
+    type = "georgian",
     submitTitle = "Submit",
     buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10",
     submitTitleClassName = "text-white",
@@ -68,25 +69,17 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
   return (
     <Fragment>
       <div className={containerClassName}>
-        <WheelPicker
-          perspective="left"
-          defaultValue={valueRef.current.day}
-          slides={days_array}
-          hasDynamicValue
-          onSelect={(value) => _onValueChange("day", value)}
-        />
-        <WheelPicker
-          perspective="center"
-          defaultValue={valueRef.current.year}
-          slides={YEARS}
-          onSelect={(value) => _onValueChange("year", value)}
-        />
-        <WheelPicker
-          perspective="right"
-          defaultValue={valueRef.current.month}
-          slides={MONTHS}
-          onSelect={(value) => _onValueChange("month", value)}
-        />
+        {columnsOrder?.map((item, index) => (
+          <WheelPicker
+            perspective={index == 0 ? "left" : index == 1 ? "center" : "right"}
+            defaultValue={
+              item == "day" ? valueRef.current.day : item == "month" ? valueRef.current.month : valueRef.current.year
+            }
+            slides={item == "day" ? days_array : item == "month" ? MONTHS : YEARS}
+            hasDynamicValue={item == "day"}
+            onSelect={(value) => _onValueChange(item, value)}
+          />
+        ))}
       </div>
       <button className={buttonClassName} onClick={_onSubmit}>
         <p className={submitTitleClassName}>{submitTitle}</p>

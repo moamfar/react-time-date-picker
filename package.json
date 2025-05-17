@@ -1,7 +1,7 @@
 {
   "name": "@moamfar/react-time-date-picker",
   "version": "1.0.9",
-  "description": "A React component library providing elegant and intuitive iOS-style pickers for Gregorian dates times and Jalaali (Persian) dates offering a consistent user experience in your React applications.",
+  "description": "A React component library providing elegant and intuitive iOS-style pickers for Gregorian dates times and Jalaali (Persian) dates and Hijri dates offering a consistent user experience in your React applications.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moamfar/react-time-date-picker.git"
@@ -12,13 +12,20 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "npm run clean && tsc && npm run copy-files",
+    "clean": "rm -rf ./dist",
+    "copy-files": "cp ./src/style.css ./dist/"
   },
   "keywords": [
     "react-time-picker",
     "react-date-picker",
     "time-picker",
-    "date-picker"
+    "date-picker",
+    "jalaali",
+    "hijri",
+    "moment",
+    "moment-jalaali",
+    "moment-hijri"
   ],
   "author": "moamfar",
   "license": "MIT",

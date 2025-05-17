@@ -11,6 +11,7 @@ export type DatePickerProps = {
   type?: CalendarType;
   minYear?: number;
   maxYear?: number;
+  columnsOrder?: ("month" | "day" | "year")[];
   submitCallback?: () => void;
   submitTitle?: string;
   submitTitleClassName?: string;

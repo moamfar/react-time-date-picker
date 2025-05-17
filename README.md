@@ -1,6 +1,6 @@
 <h1 align="center" id="title">React Time Date Picker</h1>
 
-<p id="description">A React component library providing elegant and intuitive iOS-style pickers for Gregorian dates times and Jalaali (Persian) dates offering a consistent user experience in your React applications.</p>
+<p id="description">A React component library providing elegant and intuitive iOS-style pickers for Gregorian dates times and Jalaali (Persian) dates and Hijri dates offering a consistent user experience in your React applications.</p>
 
 [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
@@ -15,6 +15,7 @@ Here're some of the project's best features:
 - Time Picker
 - Date Picker
 - Jalaali Date Picker
+- Hijri Date Picker
 
 <h2>🛠️ Installation Steps:</h2>
 
@@ -44,6 +45,10 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 
 ![Date Picker Jalaali](./screenshot/Jalaali.png)
 
+<p>Date Picker Hijri</p>
+
+![Date Picker Hijri](./screenshot/Hijri.png)
+
 <h2>🔴 Props</h2>
 
 <h3>TimePicker Props</h3>
@@ -53,7 +58,7 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 |     selectedTime     |            value of returned time object            |   true   |                                                 undefined                                                  |
 |   setSelectedTime    | function for setting value of returned time object  |   true   |                                                 undefined                                                  |
 |    submitCallback    | function that calls after clicking on submit button |  false   |                                                 undefined                                                  |
-|     submitTitle      |               Title of submit button                |  false   |                                                   "ثبت"                                                    |
+|     submitTitle      |               Title of submit button                |  false   |                                                  "Submit"                                                  |
 |   buttonClassName    |           Tailwind classNames for button            |  false   |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
 | submitTitleClassName |        Tailwind classNames for button title         |  false   |                                                "text-white"                                                |
 |  containerClassName  |          Tailwind classNames for container          |  false   | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
@@ -80,3 +85,4 @@ Technologies used in the project:
 - Embla
 - moment
 - moment-jalaali
+- moment-hijri
