@@ -18,12 +18,10 @@ Here're some of the project's best features:
 npm install @moamfar/react-time-date-picker
 ```
 
-<p>1. Install</p>
+<p>2. import style.css to your code  </p>
+
 ```
-//import style.css to your code
-
 import "@moamfar/react-time-date-picker/dist/style.css";
-
 ```
 
 <h2>Time Picker Props</h2>
@@ -58,4 +56,7 @@ Technologies used in the project:
 
 - TailwindCSS
 - Embla
+
+```
+
 ```
