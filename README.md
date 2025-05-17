@@ -24,6 +24,20 @@ npm install @moamfar/react-time-date-picker
 import "@moamfar/react-time-date-picker/dist/style.css";
 ```
 
+<h2>ScreenShots</h2>
+
+<p>Date Picker</p>
+
+![Date Picker](./screenshot/DatePicker.png)
+
+<p>Time Picker</p>
+
+![Time Picker](./screenshot/TimePicker.png)
+
+<p>Date Picker Jalaali</p>
+
+![Date Picker Jalaali](./screenshot/Jalaali.png)
+
 <h2>Time Picker Props</h2>
 
 |         Prop         |                     Description                     | Required |                                               Default Value                                                |
