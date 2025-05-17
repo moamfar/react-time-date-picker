@@ -10,7 +10,7 @@ export const findDefaultMinAndMaxYear = (type?: CalendarType) => {
     case type == "hijri":
       return { minYear: momentHijri(new Date()).iYear() - 100, maxYear: momentHijri(new Date()).iYear() };
     case type == "jalaali":
-      return { minYear: momentJalaali(new Date()).iYear() - 100, maxYear: momentJalaali(new Date()).iYear() };
+      return { minYear: momentJalaali(new Date()).jYear() - 100, maxYear: momentJalaali(new Date()).jYear() };
     default:
       return { minYear: moment(new Date()).year() - 100, maxYear: moment(new Date()).year() };
   }

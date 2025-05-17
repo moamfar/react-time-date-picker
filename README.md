@@ -55,27 +55,28 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 
 |         Prop         |                     Description                     | Required |                                               Default Value                                                |
 | :------------------: | :-------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
-|     selectedTime     |            value of returned time object            |   true   |                                                 undefined                                                  |
-|   setSelectedTime    | function for setting value of returned time object  |   true   |                                                 undefined                                                  |
-|    submitCallback    | function that calls after clicking on submit button |  false   |                                                 undefined                                                  |
-|     submitTitle      |               Title of submit button                |  false   |                                                  "Submit"                                                  |
-|   buttonClassName    |           Tailwind classNames for button            |  false   |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
-| submitTitleClassName |        Tailwind classNames for button title         |  false   |                                                "text-white"                                                |
-|  containerClassName  |          Tailwind classNames for container          |  false   | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
+|     selectedTime     |            value of returned time object            |   Yes    |                                                 undefined                                                  |
+|   setSelectedTime    | function for setting value of returned time object  |   Yes    |                                                 undefined                                                  |
+|    submitCallback    | function that calls after clicking on submit button |    No    |                                                 undefined                                                  |
+|     submitTitle      |               Title of submit button                |    No    |                                                  "Submit"                                                  |
+|   buttonClassName    |           Tailwind classNames for button            |    No    |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
+| submitTitleClassName |        Tailwind classNames for button title         |    No    |                                                "text-white"                                                |
+|  containerClassName  |          Tailwind classNames for container          |    No    | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
 
 <h3>DatePicker Props</h3>
 
 |         Prop         |                     Description                     | Required |                                               Default Value                                                |
 | :------------------: | :-------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
-|     selectedDate     |            value of returned date object            |   true   |                                                 undefined                                                  |
-|   setSelectedDate    | function for setting value of returned date object  |   true   |                                                 undefined                                                  |
-|       maxYear        |                          -                          |   true   |                                                Current year                                                |
-|       minYear        |                          -                          |   true   |                                               100 Years back                                               |
-|    submitCallback    | function that calls after clicking on submit button |  false   |                                                 undefined                                                  |
-|     submitTitle      |               Title of submit button                |  false   |                                                   "ثبت"                                                    |
-|   buttonClassName    |           Tailwind classNames for button            |  false   |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
-| submitTitleClassName |        Tailwind classNames for button title         |  false   |                                                "text-white"                                                |
-|  containerClassName  |          Tailwind classNames for container          |  false   | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
+|     selectedDate     |            value of returned date object            |   Yes    |                                                 undefined                                                  |
+|   setSelectedDate    | function for setting value of returned date object  |   Yes    |                                                 undefined                                                  |
+|       maxYear        |                          -                          |   Yes    |                                                Current year                                                |
+|       minYear        |                          -                          |   Yes    |                                               100 Years back                                               |
+|    submitCallback    | function that calls after clicking on submit button |    No    |                                                 undefined                                                  |
+|     submitTitle      |               Title of submit button                |    No    |                                                  "Submit"                                                  |
+|   buttonClassName    |           Tailwind classNames for button            |    No    |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
+| submitTitleClassName |        Tailwind classNames for button title         |    No    |                                                "text-white"                                                |
+|  containerClassName  |          Tailwind classNames for container          |    No    | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
+|     columnsOrder     |        order of year, month and day columns.        |   Yes    |                                          ["day", "month", "year"]                                          |
 
 <h2>💻 Built with</h2>
 
