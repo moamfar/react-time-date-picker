@@ -70,6 +70,8 @@ Technologies used in the project:
 
 - TailwindCSS
 - Embla
+- moment
+- moment-jalaali
 
 ```
 
