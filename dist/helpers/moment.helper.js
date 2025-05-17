@@ -14,7 +14,7 @@ const findDefaultMinAndMaxYear = (type) => {
         case type == "hijri":
             return { minYear: (0, moment_hijri_1.default)(new Date()).iYear() - 100, maxYear: (0, moment_hijri_1.default)(new Date()).iYear() };
         case type == "jalaali":
-            return { minYear: (0, moment_jalaali_1.default)(new Date()).iYear() - 100, maxYear: (0, moment_jalaali_1.default)(new Date()).iYear() };
+            return { minYear: (0, moment_jalaali_1.default)(new Date()).jYear() - 100, maxYear: (0, moment_jalaali_1.default)(new Date()).jYear() };
         default:
             return { minYear: (0, moment_1.default)(new Date()).year() - 100, maxYear: (0, moment_1.default)(new Date()).year() };
     }
