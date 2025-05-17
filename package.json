@@ -1,7 +1,7 @@
 {
   "name": "@moamfar/react-time-date-picker",
   "version": "1.0.8",
-  "description": "Smooth Time, Date and Jalaali Date Picker using Embla.",
+  "description": "A React component library providing elegant and intuitive iOS-style pickers for Gregorian dates times and Jalaali (Persian) dates offering a consistent user experience in your React applications.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moamfar/react-time-date-picker.git"

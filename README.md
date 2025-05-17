@@ -2,6 +2,12 @@
 
 <p id="description">A React component library providing elegant and intuitive iOS-style pickers for Gregorian dates times and Jalaali (Persian) dates offering a consistent user experience in your React applications.</p>
 
+[![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](#)
+
 <h2>🧐 Features</h2>
 
 Here're some of the project's best features:
@@ -24,7 +30,7 @@ npm install @moamfar/react-time-date-picker
 import "@moamfar/react-time-date-picker/dist/style.css";
 ```
 
-<h2>ScreenShots</h2>
+<h2>📸 ScreenShots</h2>
 
 <p>Date Picker</p>
 
@@ -38,7 +44,9 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 
 ![Date Picker Jalaali](./screenshot/Jalaali.png)
 
-<h2>Time Picker Props</h2>
+<h2>🔴 Props</h2>
+
+<h3>TimePicker Props</h3>
 
 |         Prop         |                     Description                     | Required |                                               Default Value                                                |
 | :------------------: | :-------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
@@ -50,7 +58,7 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 | submitTitleClassName |        Tailwind classNames for button title         |  false   |                                                "text-white"                                                |
 |  containerClassName  |          Tailwind classNames for container          |  false   | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
 
-<h2>Date Picker Props</h2>
+<h3>DatePicker Props</h3>
 
 |         Prop         |                     Description                     | Required |                                               Default Value                                                |
 | :------------------: | :-------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
@@ -72,7 +80,3 @@ Technologies used in the project:
 - Embla
 - moment
 - moment-jalaali
-
-```
-
-```
