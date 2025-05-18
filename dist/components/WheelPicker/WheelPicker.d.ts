@@ -1,6 +1,7 @@
 import { FC } from "react";
 declare const WheelPicker: FC<{
     perspective: "left" | "center" | "right";
+    useTransform?: boolean;
     hasDynamicValue?: boolean;
     defaultValue?: {
         id: number;

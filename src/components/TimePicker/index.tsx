@@ -1,5 +1,5 @@
 import moment from "moment";
-import { FC, Fragment, useRef } from "react";
+import React, { FC, Fragment, useRef } from "react";
 import { generateHoursAndMinutes } from "../../helpers/generateHoursAndMinutes.helper";
 import { TimePickerProps, TimePickerValueType } from "../../types/TimePicker.types";
 import WheelPicker from "../WheelPicker/WheelPicker";

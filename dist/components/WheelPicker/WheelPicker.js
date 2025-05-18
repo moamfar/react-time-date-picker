@@ -42,7 +42,7 @@ const lodash_1 = require("lodash");
 const react_1 = __importStar(require("react"));
 const scaleValue_helper_1 = require("../../helpers/scaleValue.helper");
 const TWEEN_FACTOR_BASE = 1;
-const WheelPicker = ({ slides, onSelect, perspective, defaultValue, hasDynamicValue }) => {
+const WheelPicker = ({ slides, onSelect, useTransform = true, perspective, defaultValue, hasDynamicValue }) => {
     const [emblaRef, emblaApi] = (0, embla_carousel_react_1.default)({
         axis: "y",
         dragFree: false,
@@ -90,7 +90,8 @@ const WheelPicker = ({ slides, onSelect, perspective, defaultValue, hasDynamicVa
                 const translate = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 100 / (slides.length / 2), 0).toString();
                 const translateZ = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 100 / slides.length, 0).toString();
                 emblaApi.slideNodes()[slideIndex].style.fontWeight = "bold";
-                emblaApi.slideNodes()[slideIndex].style.transform = `rotateX(${rotate}deg) translateX(${perspective == "center" ? 0 : perspective == "left" ? -translate : translate}px) translateZ(${translateZ}px)`;
+                if (useTransform)
+                    emblaApi.slideNodes()[slideIndex].style.transform = `rotateX(${rotate}deg) translateX(${perspective == "center" ? 0 : perspective == "left" ? -translate : translate}px) translateZ(${translateZ}px)`;
             });
         });
     }, []);

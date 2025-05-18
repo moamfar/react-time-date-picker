@@ -2,7 +2,7 @@
 import { EmblaCarouselType, EmblaEventType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { isEmpty } from "lodash";
-import { FC, useCallback, useEffect, useRef } from "react";
+import React, { FC, useCallback, useEffect, useRef } from "react";
 import { scale } from "../../helpers/scaleValue.helper";
 const TWEEN_FACTOR_BASE = 1;
 
