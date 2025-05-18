@@ -57,6 +57,8 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 | :------------------: | :-------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
 |     selectedTime     |            value of returned time object            |   Yes    |                                                 undefined                                                  |
 |   setSelectedTime    | function for setting value of returned time object  |   Yes    |                                                 undefined                                                  |
+|      is24Hours       |    if the time picker should use 24 hours format    |    No    |                                                   false                                                    |
+|      utcOffset       |  Offset of moment utc. It can be string or number.  |    No    |                                                    210                                                     |
 |    submitCallback    | function that calls after clicking on submit button |    No    |                                                 undefined                                                  |
 |     submitTitle      |               Title of submit button                |    No    |                                                  "Submit"                                                  |
 |   buttonClassName    |           Tailwind classNames for button            |    No    |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |

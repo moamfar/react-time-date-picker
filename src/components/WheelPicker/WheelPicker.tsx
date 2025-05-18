@@ -2,17 +2,18 @@
 import { EmblaCarouselType, EmblaEventType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { isEmpty } from "lodash";
-import React, { FC, useCallback, useEffect, useRef } from "react";
+import { FC, useCallback, useEffect, useRef } from "react";
 import { scale } from "../../helpers/scaleValue.helper";
 const TWEEN_FACTOR_BASE = 1;
 
 const WheelPicker: FC<{
   perspective: "left" | "center" | "right";
+  useTransform?: boolean;
   hasDynamicValue?: boolean;
   defaultValue?: { id: number; title: string | number };
   slides: { id: number; title: string | number }[];
   onSelect: (a: { id: number; title: string | number }) => void;
-}> = ({ slides, onSelect, perspective, defaultValue, hasDynamicValue }) => {
+}> = ({ slides, onSelect, useTransform = true, perspective, defaultValue, hasDynamicValue }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: "y",
     dragFree: false,
@@ -69,10 +70,10 @@ const WheelPicker: FC<{
         const translateZ = scale(tweenValue, -1, 1, 100 / slides.length, 0).toString();
 
         emblaApi.slideNodes()[slideIndex].style.fontWeight = "bold";
-
-        emblaApi.slideNodes()[slideIndex].style.transform = `rotateX(${rotate}deg) translateX(${
-          perspective == "center" ? 0 : perspective == "left" ? -translate : translate
-        }px) translateZ(${translateZ}px)`;
+        if (useTransform)
+          emblaApi.slideNodes()[slideIndex].style.transform = `rotateX(${rotate}deg) translateX(${
+            perspective == "center" ? 0 : perspective == "left" ? -translate : translate
+          }px) translateZ(${translateZ}px)`;
       });
     });
   }, []);
