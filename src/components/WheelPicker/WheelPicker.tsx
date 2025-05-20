@@ -66,8 +66,8 @@ const WheelPicker: FC<{
         }
 
         const rotate = scale(tweenValue, -1, 1, 45, 0).toString();
-        const translate = scale(tweenValue, -1, 1, 100 / (slides.length / 2), 0).toString();
-        const translateZ = scale(tweenValue, -1, 1, 100 / slides.length, 0).toString();
+        const translate = scale(tweenValue, -1, 1, 40 / (slides.length / 2), 0).toString();
+        const translateZ = scale(tweenValue, -1, 1, 40 / slides.length, 0).toString();
 
         emblaApi.slideNodes()[slideIndex].style.fontWeight = "bold";
         if (useTransform)
@@ -81,7 +81,6 @@ const WheelPicker: FC<{
     if (!!emblaApi?.canScrollNext) {
       if (!isEmpty(slides) && !!defaultValue) {
         const TEMP = slides.findIndex((i) => i?.id == defaultValue?.id);
-        if (slides?.length < 100 && slides?.length > 12) console.log({ TEMP, defaultValue });
 
         if (TEMP >= 0) emblaApi?.scrollTo(TEMP, false);
       }

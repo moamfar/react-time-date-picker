@@ -9,6 +9,7 @@ export type DatePickerProps = {
   setSelectedDate: (a?: DatePickerSelectedDate) => void;
   selectedDate?: DatePickerSelectedDate;
   type?: CalendarType;
+  useTransform?: boolean;
   minYear?: number;
   maxYear?: number;
   columnsOrder?: ("month" | "day" | "year")[];

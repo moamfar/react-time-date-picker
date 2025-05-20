@@ -14,6 +14,7 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
     setSelectedDate,
     columnsOrder = ["day", "month", "year"],
     maxYear = DEFAULT_MIN_MAX_YEAR.maxYear,
+    useTransform = true,
     minYear = DEFAULT_MIN_MAX_YEAR.minYear,
     submitCallback,
     type = "georgian",
@@ -68,10 +69,11 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
   };
   return (
     <Fragment>
-      <div className={containerClassName}>
+      <div className={`embla-parent ${containerClassName}`}>
         {columnsOrder?.map((item, index) => (
           <WheelPicker
             perspective={index == 0 ? "left" : index == 1 ? "center" : "right"}
+            useTransform={useTransform}
             defaultValue={
               item == "day" ? valueRef.current.day : item == "month" ? valueRef.current.month : valueRef.current.year
             }

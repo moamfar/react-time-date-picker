@@ -87,8 +87,8 @@ const WheelPicker = ({ slides, onSelect, useTransform = true, perspective, defau
                     onSelect(slides[slideIndex]);
                 }
                 const rotate = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 45, 0).toString();
-                const translate = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 100 / (slides.length / 2), 0).toString();
-                const translateZ = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 100 / slides.length, 0).toString();
+                const translate = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 40 / (slides.length / 2), 0).toString();
+                const translateZ = (0, scaleValue_helper_1.scale)(tweenValue, -1, 1, 40 / slides.length, 0).toString();
                 emblaApi.slideNodes()[slideIndex].style.fontWeight = "bold";
                 if (useTransform)
                     emblaApi.slideNodes()[slideIndex].style.transform = `rotateX(${rotate}deg) translateX(${perspective == "center" ? 0 : perspective == "left" ? -translate : translate}px) translateZ(${translateZ}px)`;
@@ -99,8 +99,6 @@ const WheelPicker = ({ slides, onSelect, useTransform = true, perspective, defau
         if (!!(emblaApi === null || emblaApi === void 0 ? void 0 : emblaApi.canScrollNext)) {
             if (!(0, lodash_1.isEmpty)(slides) && !!defaultValue) {
                 const TEMP = slides.findIndex((i) => (i === null || i === void 0 ? void 0 : i.id) == (defaultValue === null || defaultValue === void 0 ? void 0 : defaultValue.id));
-                if ((slides === null || slides === void 0 ? void 0 : slides.length) < 100 && (slides === null || slides === void 0 ? void 0 : slides.length) > 12)
-                    console.log({ TEMP, defaultValue });
                 if (TEMP >= 0)
                     emblaApi === null || emblaApi === void 0 ? void 0 : emblaApi.scrollTo(TEMP, false);
             }

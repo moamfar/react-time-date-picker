@@ -3,7 +3,7 @@
   margin: auto;
   position: relative;
 
-  --slide-height: 15rem;
+  --slide-height: 12rem;
   --slide-spacing: 0.2rem;
   --slide-size: 2.5rem;
 }
@@ -17,8 +17,11 @@
   height: calc(var(--slide-spacing) + var(--slide-height));
   flex-direction: column;
 }
-.embla:before,
-.embla:after {
+.embla-parent {
+  position: relative;
+}
+.embla-parent:before,
+.embla-parent:after {
   position: absolute;
   left: 0;
   right: 0;
@@ -27,13 +30,14 @@
   height: calc(50% - 32px / 2);
   z-index: 1;
   pointer-events: none;
+  touch-action: none;
 }
-.embla:before {
+.embla-parent:before {
   top: -0.5px;
   border-bottom: 1px solid rgb(150, 150, 150);
   background: linear-gradient(to top, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 1) 100%);
 }
-.embla:after {
+.embla-parent:after {
   bottom: -0.5px;
   border-top: 1px solid rgb(150, 150, 150);
 

@@ -9,6 +9,7 @@ const TimePicker: FC<TimePickerProps> = ({ ...props }) => {
   const {
     setSelectedTime,
     selectedTime,
+    useTransform = true,
     utcOffset = 210,
     submitCallback,
     is24Hours = false,
@@ -53,16 +54,18 @@ const TimePicker: FC<TimePickerProps> = ({ ...props }) => {
   };
   return (
     <Fragment>
-      <div className={containerClassName}>
+      <div className={`embla-parent ${containerClassName}`}>
         <WheelPicker
           perspective="left"
           defaultValue={valueRef.current.minute}
           slides={MINUTES}
+          useTransform={useTransform}
           onSelect={(value) => _onValueChange("minute", value)}
         />
         <WheelPicker
           perspective={is24Hours ? "right" : "center"}
           defaultValue={valueRef.current.hour}
+          useTransform={useTransform}
           slides={HOURS}
           onSelect={(value) => _onValueChange("hour", value)}
         />

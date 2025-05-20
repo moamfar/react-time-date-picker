@@ -58,7 +58,7 @@ const DatePicker = (_a) => {
     var _b, _c, _d, _e;
     var props = __rest(_a, []);
     const DEFAULT_MIN_MAX_YEAR = (0, moment_helper_1.findDefaultMinAndMaxYear)(props === null || props === void 0 ? void 0 : props.type);
-    const { selectedDate, setSelectedDate, columnsOrder = ["day", "month", "year"], maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "georgian", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
+    const { selectedDate, setSelectedDate, columnsOrder = ["day", "month", "year"], maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, useTransform = true, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "georgian", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
     const YEARS = (0, react_1.useMemo)(() => (0, generateYears_helper_1.generateYears)(minYear, maxYear), [minYear, maxYear]);
     const MONTHS = (0, generateMonths_helper_1.generateMonths)(type);
     const formatSelectedDate = (selectedDate) => {
@@ -97,7 +97,7 @@ const DatePicker = (_a) => {
         }
     };
     return (react_1.default.createElement(react_1.Fragment, null,
-        react_1.default.createElement("div", { className: containerClassName }, columnsOrder === null || columnsOrder === void 0 ? void 0 : columnsOrder.map((item, index) => (react_1.default.createElement(WheelPicker_1.default, { perspective: index == 0 ? "left" : index == 1 ? "center" : "right", defaultValue: item == "day" ? valueRef.current.day : item == "month" ? valueRef.current.month : valueRef.current.year, slides: item == "day" ? days_array : item == "month" ? MONTHS : YEARS, hasDynamicValue: item == "day", onSelect: (value) => _onValueChange(item, value) })))),
+        react_1.default.createElement("div", { className: `embla-parent ${containerClassName}` }, columnsOrder === null || columnsOrder === void 0 ? void 0 : columnsOrder.map((item, index) => (react_1.default.createElement(WheelPicker_1.default, { perspective: index == 0 ? "left" : index == 1 ? "center" : "right", useTransform: useTransform, defaultValue: item == "day" ? valueRef.current.day : item == "month" ? valueRef.current.month : valueRef.current.year, slides: item == "day" ? days_array : item == "month" ? MONTHS : YEARS, hasDynamicValue: item == "day", onSelect: (value) => _onValueChange(item, value) })))),
         react_1.default.createElement("button", { className: buttonClassName, onClick: _onSubmit },
             react_1.default.createElement("p", { className: submitTitleClassName }, submitTitle))));
 };

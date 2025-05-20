@@ -9,6 +9,7 @@ export type TimePickerProps = {
   selectedTime?: TimePickerSelectedType;
   submitCallback?: () => void;
   submitTitle?: string;
+  useTransform?: boolean;
   is24Hours?: boolean;
   utcOffset?: string | number;
   submitTitleClassName?: string;
