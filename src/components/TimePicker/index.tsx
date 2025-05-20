@@ -55,6 +55,8 @@ const TimePicker: FC<TimePickerProps> = ({ ...props }) => {
   return (
     <Fragment>
       <div className={`embla-parent ${containerClassName}`}>
+        <div className="top-gradient" />
+        <div className="bottom-gradient" />
         <WheelPicker
           perspective="left"
           defaultValue={valueRef.current.minute}

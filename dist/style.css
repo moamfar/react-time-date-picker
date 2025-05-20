@@ -20,28 +20,34 @@
 .embla-parent {
   position: relative;
 }
-.embla-parent:before,
-.embla-parent:after {
+.top-gradient {
+  top: -0.5px;
   position: absolute;
   left: 0;
   right: 0;
-  content: "";
-  display: block;
   height: calc(50% - 32px / 2);
   z-index: 1;
   pointer-events: none;
   touch-action: none;
+  border-bottom-width: 1.5px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #fff, #a9a9a9, #fff) 1;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 1) 100%);
 }
-.embla-parent:before {
-  top: -0.5px;
-  border-bottom: 1px solid rgb(150, 150, 150);
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 1) 100%);
-}
-.embla-parent:after {
+.bottom-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: calc(50% - 32px / 2);
+  z-index: 1;
+  pointer-events: none;
+  touch-action: none;
   bottom: -0.5px;
-  border-top: 1px solid rgb(150, 150, 150);
+  border-top-width: 1.5px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #fff, #a9a9a9, #fff) 1;
 
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 1) 100%);
 }
 .embla__slide {
   transform: translate3d(0, 0, 0);

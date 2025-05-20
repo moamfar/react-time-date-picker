@@ -97,7 +97,10 @@ const DatePicker = (_a) => {
         }
     };
     return (react_1.default.createElement(react_1.Fragment, null,
-        react_1.default.createElement("div", { className: `embla-parent ${containerClassName}` }, columnsOrder === null || columnsOrder === void 0 ? void 0 : columnsOrder.map((item, index) => (react_1.default.createElement(WheelPicker_1.default, { perspective: index == 0 ? "left" : index == 1 ? "center" : "right", useTransform: useTransform, defaultValue: item == "day" ? valueRef.current.day : item == "month" ? valueRef.current.month : valueRef.current.year, slides: item == "day" ? days_array : item == "month" ? MONTHS : YEARS, hasDynamicValue: item == "day", onSelect: (value) => _onValueChange(item, value) })))),
+        react_1.default.createElement("div", { className: `embla-parent ${containerClassName}` },
+            react_1.default.createElement("div", { className: "top-gradient" }),
+            react_1.default.createElement("div", { className: "bottom-gradient" }), columnsOrder === null || columnsOrder === void 0 ? void 0 :
+            columnsOrder.map((item, index) => (react_1.default.createElement(WheelPicker_1.default, { key: item + index, perspective: index == 0 ? "left" : index == 1 ? "center" : "right", useTransform: useTransform, defaultValue: item == "day" ? valueRef.current.day : item == "month" ? valueRef.current.month : valueRef.current.year, slides: item == "day" ? days_array : item == "month" ? MONTHS : YEARS, hasDynamicValue: item == "day", onSelect: (value) => _onValueChange(item, value) })))),
         react_1.default.createElement("button", { className: buttonClassName, onClick: _onSubmit },
             react_1.default.createElement("p", { className: submitTitleClassName }, submitTitle))));
 };

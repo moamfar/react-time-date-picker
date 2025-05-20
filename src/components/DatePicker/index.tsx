@@ -70,8 +70,11 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
   return (
     <Fragment>
       <div className={`embla-parent ${containerClassName}`}>
+        <div className="top-gradient" />
+        <div className="bottom-gradient" />
         {columnsOrder?.map((item, index) => (
           <WheelPicker
+            key={item + index}
             perspective={index == 0 ? "left" : index == 1 ? "center" : "right"}
             useTransform={useTransform}
             defaultValue={

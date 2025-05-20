@@ -42,7 +42,7 @@ const lodash_1 = require("lodash");
 const react_1 = __importStar(require("react"));
 const scaleValue_helper_1 = require("../../helpers/scaleValue.helper");
 const TWEEN_FACTOR_BASE = 1;
-const WheelPicker = ({ slides, onSelect, useTransform = true, perspective, defaultValue, hasDynamicValue }) => {
+const WheelPicker = ({ slides, onSelect, useTransform = false, perspective, defaultValue, hasDynamicValue }) => {
     const [emblaRef, emblaApi] = (0, embla_carousel_react_1.default)({
         axis: "y",
         dragFree: false,

@@ -13,7 +13,7 @@ const WheelPicker: FC<{
   defaultValue?: { id: number; title: string | number };
   slides: { id: number; title: string | number }[];
   onSelect: (a: { id: number; title: string | number }) => void;
-}> = ({ slides, onSelect, useTransform = true, perspective, defaultValue, hasDynamicValue }) => {
+}> = ({ slides, onSelect, useTransform = false, perspective, defaultValue, hasDynamicValue }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: "y",
     dragFree: false,

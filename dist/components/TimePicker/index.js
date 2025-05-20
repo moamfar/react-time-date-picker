@@ -90,6 +90,8 @@ const TimePicker = (_a) => {
     };
     return (react_1.default.createElement(react_1.Fragment, null,
         react_1.default.createElement("div", { className: `embla-parent ${containerClassName}` },
+            react_1.default.createElement("div", { className: "top-gradient" }),
+            react_1.default.createElement("div", { className: "bottom-gradient" }),
             react_1.default.createElement(WheelPicker_1.default, { perspective: "left", defaultValue: valueRef.current.minute, slides: MINUTES, useTransform: useTransform, onSelect: (value) => _onValueChange("minute", value) }),
             react_1.default.createElement(WheelPicker_1.default, { perspective: is24Hours ? "right" : "center", defaultValue: valueRef.current.hour, useTransform: useTransform, slides: HOURS, onSelect: (value) => _onValueChange("hour", value) }),
             !is24Hours && (react_1.default.createElement(WheelPicker_1.default, { perspective: "center", defaultValue: valueRef.current.meridiem, slides: MERIDIEMS, useTransform: false, onSelect: (value) => _onValueChange("meridiem", value) }))),
