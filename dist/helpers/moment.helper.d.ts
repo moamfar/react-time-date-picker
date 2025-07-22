@@ -1,8 +1,16 @@
-import { CalendarType } from "../types/DatePicker.types";
+import { CalendarType, DatePickerSelectedDate } from "../types/DatePicker.types";
 export declare const findDefaultMinAndMaxYear: (type?: CalendarType) => {
     minYear: number;
     maxYear: number;
 };
+export declare const checkMinAndMaxDate: ({ selectedDate, type, minDate, maxDate, minDateError, maxDateError, }: {
+    selectedDate: DatePickerSelectedDate;
+    type: CalendarType;
+    minDate?: any;
+    maxDate?: any;
+    minDateError?: string;
+    maxDateError?: string;
+}) => boolean;
 export declare const formatDefaultDate: (YEARS: {
     id: number;
     title: number;

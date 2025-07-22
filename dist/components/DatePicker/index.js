@@ -49,6 +49,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
+const sonner_1 = require("sonner");
 const generateDays_helper_1 = require("../../helpers/generateDays.helper");
 const generateMonths_helper_1 = require("../../helpers/generateMonths.helper");
 const generateYears_helper_1 = require("../../helpers/generateYears.helper");
@@ -58,7 +59,7 @@ const DatePicker = (_a) => {
     var _b, _c, _d, _e;
     var props = __rest(_a, []);
     const DEFAULT_MIN_MAX_YEAR = (0, moment_helper_1.findDefaultMinAndMaxYear)(props === null || props === void 0 ? void 0 : props.type);
-    const { selectedDate, setSelectedDate, columnsOrder = ["day", "month", "year"], maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, useTransform = true, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "georgian", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
+    const { selectedDate, setSelectedDate, columnsOrder = ["day", "month", "year"], maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, useTransform = true, minDate, maxDate, minDateError, maxDateError, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "georgian", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
     const YEARS = (0, react_1.useMemo)(() => (0, generateYears_helper_1.generateYears)(minYear, maxYear), [minYear, maxYear]);
     const MONTHS = (0, generateMonths_helper_1.generateMonths)(type);
     const formatSelectedDate = (selectedDate) => {
@@ -86,17 +87,35 @@ const DatePicker = (_a) => {
         }
     };
     const _onSubmit = () => {
-        var _a, _b, _c, _d, _e, _f;
-        setSelectedDate({
-            day: (_b = (_a = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _a === void 0 ? void 0 : _a.day) === null || _b === void 0 ? void 0 : _b.id,
-            month: (_d = (_c = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _c === void 0 ? void 0 : _c.month) === null || _d === void 0 ? void 0 : _d.id,
-            year: (_f = (_e = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _e === void 0 ? void 0 : _e.year) === null || _f === void 0 ? void 0 : _f.id,
-        });
-        if (!!submitCallback) {
-            submitCallback();
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        let isValid = true;
+        if (!!minDate || !!maxDate) {
+            isValid = (0, moment_helper_1.checkMinAndMaxDate)({
+                minDateError,
+                maxDateError,
+                minDate,
+                maxDate,
+                selectedDate: {
+                    day: (_b = (_a = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _a === void 0 ? void 0 : _a.day) === null || _b === void 0 ? void 0 : _b.id,
+                    month: (_d = (_c = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _c === void 0 ? void 0 : _c.month) === null || _d === void 0 ? void 0 : _d.id,
+                    year: (_f = (_e = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _e === void 0 ? void 0 : _e.year) === null || _f === void 0 ? void 0 : _f.id,
+                },
+                type,
+            });
+        }
+        if (isValid) {
+            setSelectedDate({
+                day: (_h = (_g = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _g === void 0 ? void 0 : _g.day) === null || _h === void 0 ? void 0 : _h.id,
+                month: (_k = (_j = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _j === void 0 ? void 0 : _j.month) === null || _k === void 0 ? void 0 : _k.id,
+                year: (_m = (_l = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _l === void 0 ? void 0 : _l.year) === null || _m === void 0 ? void 0 : _m.id,
+            });
+            if (!!submitCallback) {
+                submitCallback();
+            }
         }
     };
     return (react_1.default.createElement(react_1.Fragment, null,
+        react_1.default.createElement(sonner_1.Toaster, null),
         react_1.default.createElement("div", { className: `embla-parent ${containerClassName}` },
             react_1.default.createElement("div", { className: "top-gradient" }),
             react_1.default.createElement("div", { className: "bottom-gradient" }), columnsOrder === null || columnsOrder === void 0 ? void 0 :

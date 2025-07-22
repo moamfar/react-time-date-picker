@@ -12,6 +12,10 @@ export type DatePickerProps = {
   useTransform?: boolean;
   minYear?: number;
   maxYear?: number;
+  minDate?: any;
+  maxDate?: any;
+  minDateError?: string;
+  maxDateError?: string;
   columnsOrder?: ("month" | "day" | "year")[];
   submitCallback?: () => void;
   submitTitle?: string;

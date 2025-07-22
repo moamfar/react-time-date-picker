@@ -1,8 +1,8 @@
 import moment from "moment";
 import { default as momentHijri } from "moment-hijri";
 import { default as momentJalaali } from "moment-jalaali";
-import { CalendarType } from "../types/DatePicker.types";
-
+import { toast } from "sonner";
+import { CalendarType, DatePickerSelectedDate } from "../types/DatePicker.types";
 export const findDefaultMinAndMaxYear = (type?: CalendarType) => {
   switch (true) {
     case type == "georgian":
@@ -14,6 +14,90 @@ export const findDefaultMinAndMaxYear = (type?: CalendarType) => {
     default:
       return { minYear: moment(new Date()).year() - 100, maxYear: moment(new Date()).year() };
   }
+};
+
+export const checkMinAndMaxDate = ({
+  selectedDate,
+  type,
+  minDate,
+  maxDate,
+  minDateError,
+  maxDateError,
+}: {
+  selectedDate: DatePickerSelectedDate;
+  type: CalendarType;
+  minDate?: any;
+  maxDate?: any;
+  minDateError?: string;
+  maxDateError?: string;
+}) => {
+  let isValid = true;
+  switch (true) {
+    case type == "georgian": {
+      if (
+        !!minDate &&
+        moment(`${selectedDate?.day}/${selectedDate?.month}/${selectedDate?.year}`, "DD/MM/YYYY")
+          ?.startOf("day")
+          ?.isBefore(moment(minDate, "X")?.startOf("day"), "day")
+      ) {
+        toast(minDateError);
+        isValid = false;
+      } else if (
+        !!maxDate &&
+        moment(`${selectedDate?.day}/${selectedDate?.month}/${selectedDate?.year}`, "DD/MM/YYYY")
+          ?.endOf("day")
+          ?.isAfter(moment(maxDate, "X")?.endOf("day"), "day")
+      ) {
+        toast(maxDateError);
+        isValid = false;
+      } else {
+        isValid = true;
+      }
+    }
+    case type == "hijri": {
+      if (
+        !!minDate &&
+        momentHijri(`${selectedDate?.day}/${selectedDate?.month}/${selectedDate?.year}`, "iDD/iMM/iYYYY")
+          ?.startOf("day")
+          ?.isBefore(momentHijri(minDate, "X")?.startOf("day"), "day")
+      ) {
+        toast(minDateError);
+        isValid = false;
+      } else if (
+        !!maxDate &&
+        momentHijri(`${selectedDate?.day}/${selectedDate?.month}/${selectedDate?.year}`, "iDD/iMM/iYYYY")
+          ?.endOf("day")
+          ?.isAfter(momentHijri(maxDate, "X")?.endOf("day"), "day")
+      ) {
+        toast(maxDateError);
+        isValid = false;
+      } else {
+        isValid = true;
+      }
+    }
+    case type == "jalaali": {
+      if (
+        !!minDate &&
+        momentJalaali(`${selectedDate?.day}/${selectedDate?.month}/${selectedDate?.year}`, "jDD/jMM/jYYYY")
+          ?.startOf("day")
+          ?.isBefore(momentJalaali(minDate, "X")?.startOf("day"), "day")
+      ) {
+        toast(minDateError);
+        isValid = false;
+      } else if (
+        !!maxDate &&
+        momentJalaali(`${selectedDate?.day}/${selectedDate?.month}/${selectedDate?.year}`, "jDD/jMM/jYYYY")
+          ?.endOf("day")
+          ?.isAfter(momentJalaali(maxDate, "X")?.endOf("day"), "day")
+      ) {
+        toast(maxDateError);
+        isValid = false;
+      } else {
+        isValid = true;
+      }
+    }
+  }
+  return isValid;
 };
 
 export const formatDefaultDate = (

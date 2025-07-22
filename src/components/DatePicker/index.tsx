@@ -1,9 +1,10 @@
 "use client";
 import React, { FC, Fragment, useMemo, useRef, useState } from "react";
+import { Toaster } from "sonner";
 import { generateDays } from "../../helpers/generateDays.helper";
 import { generateMonths } from "../../helpers/generateMonths.helper";
 import { generateYears } from "../../helpers/generateYears.helper";
-import { findDefaultMinAndMaxYear, formatDefaultDate } from "../../helpers/moment.helper";
+import { checkMinAndMaxDate, findDefaultMinAndMaxYear, formatDefaultDate } from "../../helpers/moment.helper";
 import { DatePickerProps, DatePickerSelectedDate, DatePickerSelectedValue } from "../../types/DatePicker.types";
 import WheelPicker from "../WheelPicker/WheelPicker";
 
@@ -15,6 +16,10 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
     columnsOrder = ["day", "month", "year"],
     maxYear = DEFAULT_MIN_MAX_YEAR.maxYear,
     useTransform = true,
+    minDate,
+    maxDate,
+    minDateError,
+    maxDateError,
     minYear = DEFAULT_MIN_MAX_YEAR.minYear,
     submitCallback,
     type = "georgian",
@@ -46,6 +51,7 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
       type
     )
   );
+
   const _onValueChange = (refValue: "day" | "month" | "year", value: { id: number; title: string | number }) => {
     valueRef.current = { ...valueRef.current, [`${refValue}`]: value };
     if (refValue == "month" || refValue == "year") {
@@ -58,17 +64,35 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
   };
 
   const _onSubmit = () => {
-    setSelectedDate({
-      day: valueRef?.current?.day?.id,
-      month: valueRef?.current?.month?.id,
-      year: valueRef?.current?.year?.id,
-    });
-    if (!!submitCallback) {
-      submitCallback();
+    let isValid = true;
+    if (!!minDate || !!maxDate) {
+      isValid = checkMinAndMaxDate({
+        minDateError,
+        maxDateError,
+        minDate,
+        maxDate,
+        selectedDate: {
+          day: valueRef?.current?.day?.id,
+          month: valueRef?.current?.month?.id,
+          year: valueRef?.current?.year?.id,
+        },
+        type,
+      });
+    }
+    if (isValid) {
+      setSelectedDate({
+        day: valueRef?.current?.day?.id,
+        month: valueRef?.current?.month?.id,
+        year: valueRef?.current?.year?.id,
+      });
+      if (!!submitCallback) {
+        submitCallback();
+      }
     }
   };
   return (
     <Fragment>
+      <Toaster />
       <div className={`embla-parent ${containerClassName}`}>
         <div className="top-gradient" />
         <div className="bottom-gradient" />
