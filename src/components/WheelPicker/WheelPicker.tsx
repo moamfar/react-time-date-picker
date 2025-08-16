@@ -107,11 +107,11 @@ const WheelPicker: FC<{
 
   return (
     <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+      <div className="embla__viewport_picker" ref={emblaRef}>
+        <div className="embla__container_picker">
           {slides.map((item, index) => (
             <div
-              className="embla__slide transform-all text-lg"
+              className="embla__slide_picker transform-all text-lg"
               key={item?.id}
               onClick={() => emblaApi?.scrollTo(index, false)}
             >

@@ -1,10 +1,11 @@
-export type CustomePickerValueType = {
+export type CustomPickerValueType = {
     id: number;
     title: string | number;
 };
-export type CustomePickerProps = {
-    setValue: (a?: CustomePickerValueType) => void;
-    value?: CustomePickerValueType;
+export type CustomPickerProps = {
+    setValue: (a?: CustomPickerValueType) => void;
+    value?: CustomPickerValueType;
+    loading?: boolean;
     submitCallback?: () => void;
     submitTitle?: string;
     useTransform?: boolean;

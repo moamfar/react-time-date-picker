@@ -122,7 +122,7 @@ const WheelPicker = ({ slides, onSelect, useTransform = false, perspective, defa
         }
     }, [slides]);
     return (react_1.default.createElement("section", { className: "embla" },
-        react_1.default.createElement("div", { className: "embla__viewport", ref: emblaRef },
-            react_1.default.createElement("div", { className: "embla__container" }, slides.map((item, index) => (react_1.default.createElement("div", { className: "embla__slide transform-all text-lg", key: item === null || item === void 0 ? void 0 : item.id, onClick: () => emblaApi === null || emblaApi === void 0 ? void 0 : emblaApi.scrollTo(index, false) }, item === null || item === void 0 ? void 0 : item.title)))))));
+        react_1.default.createElement("div", { className: "embla__viewport_picker", ref: emblaRef },
+            react_1.default.createElement("div", { className: "embla__container_picker" }, slides.map((item, index) => (react_1.default.createElement("div", { className: "embla__slide_picker transform-all text-lg", key: item === null || item === void 0 ? void 0 : item.id, onClick: () => emblaApi === null || emblaApi === void 0 ? void 0 : emblaApi.scrollTo(index, false) }, item === null || item === void 0 ? void 0 : item.title)))))));
 };
 exports.default = WheelPicker;
