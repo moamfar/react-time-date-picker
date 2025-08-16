@@ -70,7 +70,7 @@ const CustomPicker = (_a) => {
             react_1.default.createElement("div", { className: "top-gradient" }),
             react_1.default.createElement("div", { className: "bottom-gradient" }),
             react_1.default.createElement(WheelPicker_1.default, { perspective: "center", defaultValue: valueRef.current, useTransform: useTransform, slides: slides, onSelect: (value) => _onValueChange(value) })),
-        react_1.default.createElement("button", { className: `${buttonClassName} relative `, onClick: _onSubmit },
+        react_1.default.createElement("button", { className: `${buttonClassName} relative ${loading ? "opacity-50" : ""} `, onClick: _onSubmit, disabled: !!loading },
             react_1.default.createElement("p", { className: submitTitleClassName }, submitTitle),
             !!loading && (react_1.default.createElement("div", { className: "absolute inset-0 flex items-center justify-center" },
                 react_1.default.createElement("div", { className: "loader_picker" }))))));
