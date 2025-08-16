@@ -46,7 +46,11 @@ const CustomPicker: FC<CustomPickerProps> = ({ ...props }) => {
           onSelect={(value) => _onValueChange(value)}
         />
       </div>
-      <button className={`${buttonClassName} relative `} onClick={_onSubmit}>
+      <button
+        className={`${buttonClassName} relative ${loading ? "opacity-50" : ""} `}
+        onClick={_onSubmit}
+        disabled={!!loading}
+      >
         <p className={submitTitleClassName}>{submitTitle}</p>
         {!!loading && (
           <div className="absolute inset-0 flex items-center justify-center">

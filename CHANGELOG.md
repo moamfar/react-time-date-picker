@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/moamfar/react-time-date-picker/compare/v1.1.3...v1.2.0) (2025-08-16)
+
+
+### Features
+
+* adding loading to custom picker ([a750442](https://github.com/moamfar/react-time-date-picker/commit/a75044236ef7d4b16c1a92a64a0ab452f3725045))
+
 ### [1.1.3](https://github.com/moamfar/react-time-date-picker/compare/v1.1.2...v1.1.3) (2025-08-16)
 
 ### [1.1.2](https://github.com/moamfar/react-time-date-picker/compare/v1.1.1...v1.1.2) (2025-08-16)
