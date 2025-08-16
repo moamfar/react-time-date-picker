@@ -1,3 +1,4 @@
+import { ToasterProps } from "sonner";
 export type DatePickerSelectedDate = {
     day: number | string;
     month: number | string;
@@ -27,6 +28,7 @@ export type DatePickerProps = {
     maxYear?: number;
     minDate?: any;
     maxDate?: any;
+    sonnerOptions?: ToasterProps;
     minDateError?: string;
     maxDateError?: string;
     columnsOrder?: ("month" | "day" | "year")[];

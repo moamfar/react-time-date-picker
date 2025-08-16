@@ -59,7 +59,7 @@ const DatePicker = (_a) => {
     var _b, _c, _d, _e;
     var props = __rest(_a, []);
     const DEFAULT_MIN_MAX_YEAR = (0, moment_helper_1.findDefaultMinAndMaxYear)(props === null || props === void 0 ? void 0 : props.type);
-    const { selectedDate, setSelectedDate, columnsOrder = ["day", "month", "year"], maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, useTransform = true, minDate, maxDate, minDateError, maxDateError, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "georgian", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
+    const { selectedDate, setSelectedDate, columnsOrder = ["day", "month", "year"], maxYear = DEFAULT_MIN_MAX_YEAR.maxYear, useTransform = true, minDate, sonnerOptions, maxDate, minDateError, maxDateError, minYear = DEFAULT_MIN_MAX_YEAR.minYear, submitCallback, type = "georgian", submitTitle = "Submit", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex flex-row items-center justify-between  w-full px-4 h-[18rem] overflow-hidden relative", } = props;
     const YEARS = (0, react_1.useMemo)(() => (0, generateYears_helper_1.generateYears)(minYear, maxYear), [minYear, maxYear]);
     const MONTHS = (0, generateMonths_helper_1.generateMonths)(type);
     const formatSelectedDate = (selectedDate) => {
@@ -101,6 +101,7 @@ const DatePicker = (_a) => {
                     year: (_f = (_e = valueRef === null || valueRef === void 0 ? void 0 : valueRef.current) === null || _e === void 0 ? void 0 : _e.year) === null || _f === void 0 ? void 0 : _f.id,
                 },
                 type,
+                sonnerOptions,
             });
         }
         if (isValid) {
