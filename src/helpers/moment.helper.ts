@@ -1,7 +1,7 @@
 import moment from "moment";
 import { default as momentHijri } from "moment-hijri";
 import { default as momentJalaali } from "moment-jalaali";
-import { toast } from "sonner";
+import { toast, ToasterProps } from "sonner";
 import { CalendarType, DatePickerSelectedDate } from "../types/DatePicker.types";
 export const findDefaultMinAndMaxYear = (type?: CalendarType) => {
   switch (true) {
@@ -23,6 +23,7 @@ export const checkMinAndMaxDate = ({
   maxDate,
   minDateError,
   maxDateError,
+  sonnerOptions,
 }: {
   selectedDate: DatePickerSelectedDate;
   type: CalendarType;
@@ -30,6 +31,7 @@ export const checkMinAndMaxDate = ({
   maxDate?: any;
   minDateError?: string;
   maxDateError?: string;
+  sonnerOptions?: ToasterProps;
 }) => {
   let isValid = true;
   switch (true) {
@@ -40,7 +42,7 @@ export const checkMinAndMaxDate = ({
           ?.startOf("day")
           ?.isBefore(moment(minDate, "X")?.startOf("day"), "day")
       ) {
-        toast(minDateError);
+        toast(minDateError, sonnerOptions);
         isValid = false;
       } else if (
         !!maxDate &&
@@ -48,7 +50,7 @@ export const checkMinAndMaxDate = ({
           ?.endOf("day")
           ?.isAfter(moment(maxDate, "X")?.endOf("day"), "day")
       ) {
-        toast(maxDateError);
+        toast(maxDateError, sonnerOptions);
         isValid = false;
       } else {
         isValid = true;
@@ -61,7 +63,7 @@ export const checkMinAndMaxDate = ({
           ?.startOf("day")
           ?.isBefore(momentHijri(minDate, "X")?.startOf("day"), "day")
       ) {
-        toast(minDateError);
+        toast(minDateError, sonnerOptions);
         isValid = false;
       } else if (
         !!maxDate &&
@@ -69,7 +71,7 @@ export const checkMinAndMaxDate = ({
           ?.endOf("day")
           ?.isAfter(momentHijri(maxDate, "X")?.endOf("day"), "day")
       ) {
-        toast(maxDateError);
+        toast(maxDateError, sonnerOptions);
         isValid = false;
       } else {
         isValid = true;
@@ -82,7 +84,7 @@ export const checkMinAndMaxDate = ({
           ?.startOf("day")
           ?.isBefore(momentJalaali(minDate, "X")?.startOf("day"), "day")
       ) {
-        toast(minDateError);
+        toast(minDateError, sonnerOptions);
         isValid = false;
       } else if (
         !!maxDate &&
@@ -90,7 +92,7 @@ export const checkMinAndMaxDate = ({
           ?.endOf("day")
           ?.isAfter(momentJalaali(maxDate, "X")?.endOf("day"), "day")
       ) {
-        toast(maxDateError);
+        toast(maxDateError, sonnerOptions);
         isValid = false;
       } else {
         isValid = true;

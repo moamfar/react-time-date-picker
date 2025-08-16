@@ -67,18 +67,23 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 
 <h3>DatePicker Props</h3>
 
-|         Prop         |                     Description                     | Required |                                               Default Value                                                |
-| :------------------: | :-------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
-|     selectedDate     |            value of returned date object            |   Yes    |                                                 undefined                                                  |
-|   setSelectedDate    | function for setting value of returned date object  |   Yes    |                                                 undefined                                                  |
-|       maxYear        |                          -                          |   Yes    |                                                Current year                                                |
-|       minYear        |                          -                          |   Yes    |                                               100 Years back                                               |
-|    submitCallback    | function that calls after clicking on submit button |    No    |                                                 undefined                                                  |
-|     submitTitle      |               Title of submit button                |    No    |                                                  "Submit"                                                  |
-|   buttonClassName    |           Tailwind classNames for button            |    No    |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
-| submitTitleClassName |        Tailwind classNames for button title         |    No    |                                                "text-white"                                                |
-|  containerClassName  |          Tailwind classNames for container          |    No    | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
-|     columnsOrder     |        order of year, month and day columns.        |   Yes    |                                          ["day", "month", "year"]                                          |
+|         Prop         |                     Description                      | Required |                                               Default Value                                                |
+| :------------------: | :--------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------: |
+|     selectedDate     |            value of returned date object             |   Yes    |                                                 undefined                                                  |
+|   setSelectedDate    |  function for setting value of returned date object  |   Yes    |                                                 undefined                                                  |
+|       maxYear        |                          -                           |   Yes    |                                                Current year                                                |
+|       minYear        |                          -                           |   Yes    |                                               100 Years back                                               |
+|       maxDate        |   Maximum acceptable date. using timestamp format    |    No    |                                                 undefined                                                  |
+|       minDate        |   Minimum acceptable date. using timestamp format    |    No    |                                                 undefined                                                  |
+|     maxDateError     | Error string for when the date is after the maxDate  |    No    |                                                 undefined                                                  |
+|     minDateError     | Error string for when the date is before the minDate |    No    |                                                 undefined                                                  |
+|    submitCallback    | function that calls after clicking on submit button  |    No    |                                                 undefined                                                  |
+|     submitTitle      |                Title of submit button                |    No    |                                                  "Submit"                                                  |
+|   buttonClassName    |            Tailwind classNames for button            |    No    |                     "w-full bg-black rounded-md flex items-center justify-center h-10"                     |
+| submitTitleClassName |         Tailwind classNames for button title         |    No    |                                                "text-white"                                                |
+|  containerClassName  |          Tailwind classNames for container           |    No    | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
+|     columnsOrder     |        order of year, month and day columns.         |   Yes    |                                          ["day", "month", "year"]                                          |
+|    sonnerOptions     |                          -                           |    No    |                                                 undefined                                                  |
 
 <h2>💻 Built with</h2>
 

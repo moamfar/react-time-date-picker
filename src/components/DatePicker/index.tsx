@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, Fragment, useMemo, useRef, useState } from "react";
+import { FC, Fragment, useMemo, useRef, useState } from "react";
 import { Toaster } from "sonner";
 import { generateDays } from "../../helpers/generateDays.helper";
 import { generateMonths } from "../../helpers/generateMonths.helper";
@@ -17,6 +17,7 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
     maxYear = DEFAULT_MIN_MAX_YEAR.maxYear,
     useTransform = true,
     minDate,
+    sonnerOptions,
     maxDate,
     minDateError,
     maxDateError,
@@ -77,6 +78,7 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
           year: valueRef?.current?.year?.id,
         },
         type,
+        sonnerOptions,
       });
     }
     if (isValid) {
