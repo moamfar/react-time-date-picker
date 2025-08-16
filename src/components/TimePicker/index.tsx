@@ -54,7 +54,7 @@ const TimePicker: FC<TimePickerProps> = ({ ...props }) => {
   };
   return (
     <Fragment>
-      <div className={`embla-parent ${containerClassName}`}>
+      <div className={`embla-parent_picker ${containerClassName}`}>
         <div className="top-gradient" />
         <div className="bottom-gradient" />
         <WheelPicker

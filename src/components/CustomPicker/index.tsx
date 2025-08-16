@@ -1,10 +1,10 @@
 import moment from "moment";
 import React, { FC, Fragment, useRef } from "react";
 import WheelPicker from "../WheelPicker/WheelPicker";
-import { CustomePickerProps, CustomePickerValueType } from "../../types/CustomePicker.types";
+import { CustomPickerProps, CustomPickerValueType } from "../../types/CustomPicker.types";
 moment.locale("en");
 
-const CustomePicker: FC<CustomePickerProps> = ({ ...props }) => {
+const CustomPicker: FC<CustomPickerProps> = ({ ...props }) => {
   const {
     setValue,
     value,
@@ -15,11 +15,12 @@ const CustomePicker: FC<CustomePickerProps> = ({ ...props }) => {
     submitTitleClassName = "text-white",
     containerClassName = "flex px-[10%] md:px-[25%] flex-row items-center justify-center  w-full  h-[18rem] overflow-hidden relative",
     slides,
+    loading,
   } = props;
 
   const SELECTED = value;
 
-  const valueRef = useRef<CustomePickerValueType>(SELECTED || { id: 0, title: "" });
+  const valueRef = useRef<CustomPickerValueType>(SELECTED || { id: 0, title: "" });
 
   const _onValueChange = (value: { id: number; title: string | number }) => {
     valueRef.current = value;
@@ -33,7 +34,7 @@ const CustomePicker: FC<CustomePickerProps> = ({ ...props }) => {
   };
   return (
     <Fragment>
-      <div className={`embla-parent ${containerClassName}`}>
+      <div className={`embla-parent_picker ${containerClassName}`}>
         <div className="top-gradient" />
         <div className="bottom-gradient" />
 
@@ -45,11 +46,16 @@ const CustomePicker: FC<CustomePickerProps> = ({ ...props }) => {
           onSelect={(value) => _onValueChange(value)}
         />
       </div>
-      <button className={buttonClassName} onClick={_onSubmit}>
+      <button className={`${buttonClassName} relative `} onClick={_onSubmit}>
         <p className={submitTitleClassName}>{submitTitle}</p>
+        {!!loading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="loader_picker" />
+          </div>
+        )}
       </button>
     </Fragment>
   );
 };
 
-export default CustomePicker;
+export default CustomPicker;

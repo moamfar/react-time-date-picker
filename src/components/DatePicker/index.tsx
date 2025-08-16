@@ -93,7 +93,7 @@ const DatePicker: FC<DatePickerProps> = ({ ...props }) => {
   return (
     <Fragment>
       <Toaster />
-      <div className={`embla-parent ${containerClassName}`}>
+      <div className={`embla-parent_picker ${containerClassName}`}>
         <div className="top-gradient" />
         <div className="bottom-gradient" />
         {columnsOrder?.map((item, index) => (

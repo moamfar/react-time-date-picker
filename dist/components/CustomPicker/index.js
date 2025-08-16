@@ -51,9 +51,9 @@ const moment_1 = __importDefault(require("moment"));
 const react_1 = __importStar(require("react"));
 const WheelPicker_1 = __importDefault(require("../WheelPicker/WheelPicker"));
 moment_1.default.locale("en");
-const CustomePicker = (_a) => {
+const CustomPicker = (_a) => {
     var props = __rest(_a, []);
-    const { setValue, value, useTransform = true, submitCallback, submitTitle = "ثبت", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex px-[10%] md:px-[25%] flex-row items-center justify-center  w-full  h-[18rem] overflow-hidden relative", slides, } = props;
+    const { setValue, value, useTransform = true, submitCallback, submitTitle = "ثبت", buttonClassName = "w-full bg-black rounded-md flex items-center justify-center h-10", submitTitleClassName = "text-white", containerClassName = "flex px-[10%] md:px-[25%] flex-row items-center justify-center  w-full  h-[18rem] overflow-hidden relative", slides, loading, } = props;
     const SELECTED = value;
     const valueRef = (0, react_1.useRef)(SELECTED || { id: 0, title: "" });
     const _onValueChange = (value) => {
@@ -66,11 +66,13 @@ const CustomePicker = (_a) => {
         }
     };
     return (react_1.default.createElement(react_1.Fragment, null,
-        react_1.default.createElement("div", { className: `embla-parent ${containerClassName}` },
+        react_1.default.createElement("div", { className: `embla-parent_picker ${containerClassName}` },
             react_1.default.createElement("div", { className: "top-gradient" }),
             react_1.default.createElement("div", { className: "bottom-gradient" }),
             react_1.default.createElement(WheelPicker_1.default, { perspective: "center", defaultValue: valueRef.current, useTransform: useTransform, slides: slides, onSelect: (value) => _onValueChange(value) })),
-        react_1.default.createElement("button", { className: buttonClassName, onClick: _onSubmit },
-            react_1.default.createElement("p", { className: submitTitleClassName }, submitTitle))));
+        react_1.default.createElement("button", { className: `${buttonClassName} relative `, onClick: _onSubmit },
+            react_1.default.createElement("p", { className: submitTitleClassName }, submitTitle),
+            !!loading && (react_1.default.createElement("div", { className: "absolute inset-0 flex items-center justify-center" },
+                react_1.default.createElement("div", { className: "loader_picker" }))))));
 };
-exports.default = CustomePicker;
+exports.default = CustomPicker;
