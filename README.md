@@ -83,7 +83,7 @@ import "@moamfar/react-time-date-picker/dist/style.css";
 | submitTitleClassName |         Tailwind classNames for button title         |    No    |                                                "text-white"                                                |
 |  containerClassName  |          Tailwind classNames for container           |    No    | "flex px-[10%] md:px-[25%] flex-row items-center justify-center w-full h-[18rem] overflow-hidden relative" |
 |     columnsOrder     |        order of year, month and day columns.         |   Yes    |                                          ["day", "month", "year"]                                          |
-|    sonnerOptions     |                          -                           |    No    |                                                 undefined                                                  |
+|    sonnerOptions     |     Options for minDate nad maxDate error toast.     |    No    |                                                 undefined                                                  |
 
 <h2>💻 Built with</h2>
 
